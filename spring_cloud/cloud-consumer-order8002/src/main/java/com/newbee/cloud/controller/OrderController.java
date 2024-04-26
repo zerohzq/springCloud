@@ -30,12 +30,15 @@ public class OrderController{
     public ResultData addOrder(PayDTO payDTO){
         return restTemplate.postForObject(PaymentSrv_URL + "/pay/add",payDTO,ResultData.class);
     }
-    // 删除+修改操作作为家庭作业，O(∩_∩)O。。。。。。。
     @GetMapping("/consumer/pay/get/{id}")
     public ResultData getPayInfo(@PathVariable("id") Integer id){
-        return restTemplate.getForObject(PaymentSrv_URL + "/pay/get/"+id, ResultData.class, id);
+        return restTemplate.getForObject(PaymentSrv_URL + "/pay/getOne/"+id, ResultData.class,id);
     }
 
+    @GetMapping("/consumer/pay/update")
+    public ResultData updatePayInfo(PayDTO payDTO){
+        return restTemplate.postForObject(PaymentSrv_URL + "/pay/update",payDTO,ResultData.class);
+    }
 
 }
 
