@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 public class OrderController{
-    public static final String PaymentSrv_URL = "http://localhost:8001";//先写死，硬编码
+    public static final String PaymentSrv_URL = "http://cloud-payment-service";//先写死，硬编码
     @Autowired
     private RestTemplate restTemplate;
 
@@ -35,10 +35,10 @@ public class OrderController{
         return restTemplate.getForObject(PaymentSrv_URL + "/pay/getOne/"+id, ResultData.class,id);
     }
 
-    @GetMapping("/consumer/pay/update")
-    public ResultData updatePayInfo(PayDTO payDTO){
-        return restTemplate.postForObject(PaymentSrv_URL + "/pay/update",payDTO,ResultData.class);
-    }
+//    @GetMapping("/consumer/pay/update")
+//    public ResultData updatePayInfo(PayDTO payDTO){
+//        return restTemplate.postForObject(PaymentSrv_URL + "/pay/update",payDTO,ResultData.class);
+//    }
 
 }
 

@@ -2,6 +2,8 @@ package com.newbee.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -9,6 +11,8 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @create 2023-11-03 17:54
  */
 @SpringBootApplication
+@EnableDiscoveryClient   //服务注册 发现
+@RefreshScope  //动态刷新
 @MapperScan("com.newbee.cloud.mapper") //import tk.mybatis.spring.annotation.MapperScan;
 public class Main8001
 {
