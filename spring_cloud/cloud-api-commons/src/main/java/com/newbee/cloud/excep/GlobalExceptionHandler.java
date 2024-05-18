@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultData<String> globalException(Exception e){
-        log.info("####################进入全局异常类{}================",e.getMessage(),e);
+        log.info("####################进入全局异常类{}###################",e.getMessage(),e);
         return ResultData.fail(RerurnCodeEnum.RC500.getCode(),e.getMessage());
 
     }
