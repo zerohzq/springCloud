@@ -41,4 +41,20 @@ public interface PayFeignApi {
      */
     @GetMapping(value = "/pay/get/info")
     public String mylb();
+
+    /**
+     * Resilience4j CircuitBreaker 的例子
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/circuit/{id}")
+    public String myCircuit(@PathVariable("id") Integer id);
+
+    /**
+     * Resilience4j Bulkhead 的例子
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/bulkhead/{id}")
+    public String myBulkhead(@PathVariable("id") Integer id);
 }
